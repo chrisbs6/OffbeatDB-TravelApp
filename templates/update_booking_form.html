@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="content-container auth-form">
+    <h1>Update Booking Details</h1>
+    <form method="POST" action="{{ url_for('update_booking', booking_id=booking.booking_id) }}">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+        <p>
+            <label for="passenger_name">First Name:</label>
+            <input type="text" id="passenger_name" name="passenger_name" value="{{ booking.passenger_name }}" required>
+        </p>
+        <p>
+            <label for="family_name">Family Name:</label>
+            <input type="text" id="family_name" name="family_name" value="{{ booking.family_name }}" required>
+        </p>
+        <p>
+            <input type="submit" value="Update Booking">
+        </p>
+    </form>
+</div>
+{% endblock %}

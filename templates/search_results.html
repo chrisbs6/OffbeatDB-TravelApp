@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="search-results">
+    <h2>Search Results</h2>
+    {% if flights %}
+        <div class="flights-container">
+        {% for flight in flights %}
+            <div class="flight-card">
+                <div class="flight-header">
+                    <h3>{{ flight.airline }} Flight {{ flight.flight_no }}</h3>
+                </div>
+                <div class="flight-body">
+                    <p><strong>From:</strong> {{ flight.origin_code }}</p>
+                    <p><strong>To:</strong> {{ flight.destination_code }}</p>
+                    <p><strong>Departure:</strong> {{ flight.depart_time }}</p>
+                    <p><strong>Arrival:</strong> {{ flight.arrival_time }}</p>
+                    <p><strong>Duration:</strong> {{ flight.duration }}</p>
+                    <p><strong>Class:</strong> {{ flight_class }}</p>
+                    <p><strong>Price:</strong> 
+                        {% if flight_class == 'economy' %}
+                            ${{ flight.economy_fare }}
+                        {% elif flight_class == 'business' %}
+                            ${{ flight.business_fare }}
+                        {% else %}
+                            ${{ flight.first_fare }}
+                        {% endif %}
+                    </p>
+                </div>
+                <div class="flight-footer">
+<!-- Inside the flight loop -->
+<button onclick="location.href='{{ url_for('booking_form', flight_id=flight.id) }}'">Select</button>
+
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+    {% else %}
+        <p class="no-flights-message">We're sorry, there are no flights available for your search criteria at this time.</p>
+    {% endif %}
+</div>
+{% endblock %}
+
+

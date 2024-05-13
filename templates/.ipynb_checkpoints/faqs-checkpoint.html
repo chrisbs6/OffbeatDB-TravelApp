@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1>FAQs</h1>
+    {% for category, items in faqs.items() %}
+        <div class="faq-category-toggle" onclick="toggleFAQ('faq{{ loop.index }}')">
+            {{ category }}
+        </div>
+        <div id="faq{{ loop.index }}" class="faq-category-content">
+            {% for item in items %}
+                <p><strong>Q: {{ item.question }}</strong></p>
+                <p>A: {{ item.answer }}</p>
+            {% endfor %}
+        </div>
+    {% endfor %}
+</div>
+
+<script>
+    // Simple JavaScript toggle function for FAQ
+    function toggleFAQ(id) {
+        var content = document.getElementById(id);
+        var toggle = content.previousElementSibling;
+        content.style.display = content.style.display === 'block' ? 'none' : 'block';
+        toggle.classList.toggle('active');
+    }
+</script>
+{% endblock %}
+
+
+

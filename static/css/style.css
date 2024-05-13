@@ -1,0 +1,738 @@
+/* General Setup and Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+/* Roboto font imported for consistent typography across the website. */
+
+/* Color Scheme Variables */
+:root {
+    --primary-color: #0056b3; /* Primary color for interactive elements and headings. Used across base.html, home.html, about.html, and contact.html */
+    --secondary-color: #e9ecef; /* Secondary background color, used in various sections for contrast. */
+    --text-color: #343a40; /* Main text color, used throughout the website. */
+    --background-color: #ffffff; /* Website's background color, set globally. */
+    --footer-background-color: #333; /* Footer background color, used in base.html. */
+}
+
+/* Global Styles */
+body {
+    font-family: 'Roboto', sans-serif; /* Applies the Roboto font globally across all pages. */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Ensures an element's dimensions include padding and border. */
+    color: var(--text-color);
+    background-color: var(--background-color);
+    line-height: 1.6; /* Improves text readability. */
+}
+
+/* Header Styles (Affects base.html and inherited by all other pages) */
+header .navbar {
+    display: flex; /* Ensures the navbar displays flex items */
+    justify-content: space-between; /* Spreads nav links and auth links */
+    align-items: center; /* Aligns items vertically */
+    padding: 1rem 4rem; /* Adjust padding to your liking */
+    background-color: var(--primary-color);
+    color: #ffffff;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+.navbar-icon {
+    height: 71px; /* Adjust the size as necessary */
+    width: auto;
+    margin-right: 20px; /* Adds some space between the icon and the nav links */
+    transform: rotate(15deg);
+}
+/* Nav Links Styles */
+header .navbar .nav-links {
+    display: flex; /* Display nav-links as flex to align items */
+    justify-content: center; /* This will center the nav links */
+    flex: 1; /* Allows nav-links to grow and take up space for centering */
+    list-style-type: none; /* Removes default list styling */
+    padding: 0; /* adjust this as necessary */
+    margin: 0; /* remove any default margins */
+    align-items: center; 
+    padding-left: 0;
+}
+
+header .navbar .nav-links li {
+    padding: 0 10px; /* Adds horizontal padding for spacing */
+}
+
+header .navbar .nav-links li a {
+    color: #ffffff; /* Ensures nav links are visible against the primary color background */
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease-in-out; /* Smooth color transition for hover effect */
+}
+
+header .navbar .nav-links li a:hover {
+    color: var(--secondary-color); /* Changes color on hover for visual feedback */
+}
+
+/* Authentication Links Styles */
+/* Authentication Links Styles */
+header .navbar .nav-authentication {
+    display: flex; /* Use flexbox for horizontal alignment */
+    list-style-type: none; /* Removes default list styling */
+    padding: 0; /* Removes padding */
+}
+
+/* Style for individual auth items (login, my bookings, my account) */
+header .navbar .nav-authentication li {
+    margin-left: 20px; /* Only add left margin for spacing */
+}
+
+/* Ensures the authentication links are not too far to the right */
+header .navbar {
+    padding-right: 2rem; /* Adjust this value to bring the auth links closer to the center */
+}
+/* Authentication Link Styles */
+.nav-authentication {
+    display: flex;
+    align-items: center;
+    /* Pushes the authentication nav to the right, but keeps within the flow */
+    margin-left: auto;
+    margin-right: 1rem; /* Adjust this to control the distance from the right edge */
+}
+
+/* Style for the login button specifically */
+.nav-authentication a.login-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px; /* Adjust the padding to fit your design */
+    border-radius: 50px; /* High value to create rounded edges */
+    border: 2px solid var(--primary-color); /* Adjust the border color to match the theme */
+    background-color: var(--primary-color); /* Adjust background color */
+    color: white; /* Color of the text */
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px; /* Adjust font-size as needed */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16); /* Example shadow, adjust as needed */
+}
+
+/* New style for adding space between the icon and the text */
+.nav-authentication a.login-btn .fas {
+    margin-right: 0.5em; /* Adjust the value as needed */
+}
+
+.nav-authentication a.login-btn:hover {
+    background-color: darken(var(--primary-color), 10%);
+    border-color: darken(var(--primary-color), 10%);
+    text-decoration: none; /* No underline on hover */
+}
+
+/* Style for the list item containing authentication links */
+.nav-authentication-item {
+    margin-left: 20px; /* Adjust the margin between the navigation items */
+}
+
+/* Style for the individual authentication links */
+.nav-authentication-item a {
+    color: #ffffff; /* Color of the links */
+    text-decoration: none; /* Remove underlines */
+    margin-left: 10px; /* Adjust the spacing between the links */
+}
+/* Style for the logout link specifically */
+.nav-authentication a.logout-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px; /* Adjust the padding to fit your design */
+    border-radius: 50px; /* High value to create rounded edges */
+    border: 2px solid var(--primary-color); /* Adjust the border color to match the theme */
+    background-color: var(--primary-color); /* Adjust background color */
+    color: white; /* Color of the text */
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px; /* Adjust font-size as needed */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16); /* Example shadow, adjust as needed */
+}
+
+/* New style for adding space between the icon and the text */
+.nav-authentication a.logout-btn .fas {
+    margin-right: 0.5em; /* Adjust the value as needed */
+}
+
+.nav-authentication a.logout-btn:hover {
+    background-color: darken(var(--primary-color), 10%);
+    border-color: darken(var(--primary-color), 10%);
+    text-decoration: none; /* No underline on hover */
+}
+
+/* Responsive Design Adjustments */
+@media (max-width: 768px) {
+    .navbar-icon {
+        height: 30px; /* Resize the icon on smaller screens */
+    }
+    header .navbar {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    header .navbar .nav-links,
+    header .navbar .nav-authentication {
+        width: 100%;
+        justify-content: center;
+        margin-right: 0;
+    }
+
+    /* Adjust font size and padding for smaller screens if necessary */
+    .nav-authentication a.login-btn {
+        padding: 8px 16px;
+        font-size: smaller;
+    }
+}
+
+/* Main Content Padding (base.html) */
+main {
+    padding: 20px; /* Adds spacing around the main content of all pages. */
+}
+
+/* Footer Styles (base.html) */
+footer {
+    background-color: var(--footer-background-color);
+    color: #ffffff;
+    text-align: center;
+    padding: 1rem;
+    position: relative;
+    bottom: 0;
+    width: 100%; /* Ensures the footer covers the width of the page. */
+}
+
+/* Typography & Links (Applies to all pages) */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--primary-color); /* Sets heading colors for consistency across the site. */
+}
+a:hover {
+    text-decoration: underline; /* Enhances link interaction feedback. */
+}
+
+/* Image Row Styles (Specific to home.html) */
+.image-row {
+    display: flex;
+    justify-content: center; /* Centers images within the container. */
+    gap: 10px;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.image-row img {
+    width: calc(33.333% - 20px); /* Ensures images are evenly spaced with a gap. */
+    height: auto; /* Maintains aspect ratio of images. */
+    display: block;
+    opacity: 0; /* Start with images invisible */
+    animation: fadeIn 0.5s ease forwards; /* Apply the fade-in animation, faster duration */
+}
+
+/* Define the keyframes for the fadeIn effect */
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+/* Apply a different animation delay to each image, with shorter delays */
+.image-row img:nth-child(1) {
+    animation-delay: 0.2s; /* Delay the first image */
+}
+
+.image-row img:nth-child(2) {
+    animation-delay: 0.5s; /* Delay the second image */
+}
+
+.image-row img:nth-child(3) {
+    animation-delay: 0.7s; /* Delay the third image */
+}
+/* Images on right and left side in home.html */
+/* Global Flexbox Container */
+/* Content Container */
+/* Container for your main content */
+.content-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px; /* Adjust the gap as needed */
+}
+
+/* Styling for the side images container */
+.vertical-images {
+  flex: 1; /* flex-grow: 1 will allow the image containers to grow equally */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Styling for each individual image within the side containers */
+.vertical-images img {
+  width: 100%; /* Adjust width as needed */
+  height: 400px; /* Height auto for aspect ratio */
+  object-fit: cover; /* Cover the area of the box without stretching */
+}
+
+/* Styling for the search and booking container */
+.search-booking-container {
+  flex: 2; /* Allows the search box to grow twice as much as the image containers */
+  padding: 20px;
+  background-color: var(--secondary-color); /* Use your defined secondary color */
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative; /* For absolute positioning of any child */
+}
+
+/* Media Queries for Responsive Adjustments */
+@media (max-width: 768px) {
+  .content-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .vertical-images {
+    display: none; /* Hide the side images on smaller screens */
+  }
+
+  .search-booking-container {
+    width: 100%; /* Full width on smaller screens */
+    max-width: 100%; /* No restriction on max width */
+    margin: 1rem auto; /* Centered with automatic margin */
+    padding: 1rem; /* Padding for inner spacing */
+  }
+}
+
+
+/* Form Styles (Shared by home.html and contact.html) */
+#searchForm, #contactForm {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+#searchForm input[type=text], 
+#searchForm input[type=date], 
+#searchForm select,
+#contactForm input[type=text], 
+#contactForm input[type=email], 
+#contactForm textarea {
+    width: 100%; /* Sets the input width to take the full width of its parent container */
+    padding: 0.5rem; /* Adds padding inside the input fields for text spacing */
+    border: 1px solid #ccc; /* Adds a border to the input fields */
+    border-radius: 4px; /* Rounds the corners of the input fields */
+}
+#searchForm button, .btn-submit {
+    padding: 0.5rem;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 4px; /* Rounded corners for buttons. */
+    cursor: pointer; /* Changes cursor to pointer on hover over buttons. */
+}
+#searchForm button:hover, .btn-submit:hover {
+    background-color: darken(var(--primary-color), 10%); /* Darkens button background color on hover for feedback. */
+}
+/* Welcome text styling */
+.welcome-text {
+    position: absolute; /* Position the text absolutely within the container */
+    top: 4%; /* Position it 50% from the top */
+    left: 50%; /* Position it 50% from the left */
+    transform: translate(-50%, -50%); /* Offset the text by its own dimensions to truly center it */
+    z-index: 10; /* Ensure the text is above other elements */
+    color: var(--primary-color); /* Adjust text color as needed */
+    font-size: 2rem; /* Adjust text size as needed */
+    text-align: center; /* Ensure the text is centered */
+    width: 100%; /* Make the text container as wide as its parent */
+    margin-bottom: 1rem; 
+}
+.subtext {
+    margin-top: 4.5rem; /* Adjust the value to get the desired gap */
+}
+.trip-option {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem; /* Adjust as necessary */
+}
+
+.trip-option label {
+    margin-right: 1rem; /* Adjust as necessary */
+    font-size: 1rem; /* Adjust as necessary */
+}
+/* Contact Section Styles (Specific to contact.html) */
+.contact-section {
+    max-width: 800px;
+    margin: 2rem auto;
+    text-align: center; /* Centers the content within the contact section. */
+}
+.contact-info {
+    display: flex;
+    justify-content: space-around; /* Evenly spaces the contact info items. */
+    margin-bottom: 2rem;
+}
+.contact-item {
+    text-align: center; /* Centers the content within each contact item. */
+}
+.contact-item h2 {
+    margin-bottom: 0.5rem; /* Adds spacing below the subheadings. */
+}
+.contact-item p {
+    margin-top: 0;
+    font-weight: bold; /* Makes the contact information text bold. */
+}
+
+/* About Section Styles (Specific to about.html) */
+.about-section {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px; /* Adds padding around the about section content. */
+}
+.about-section h1, .about-section h2 {
+    color: var(--primary-color); /* Sets color of headings in the about section. */
+}
+.about-section p, .about-section ul {
+    text-align: left; /* Aligns paragraphs and lists to the left. */
+    color: var(--text-color); /* Sets the text color. */
+}
+.lead {
+    font-size: 1.2rem; /* Sets font size for lead paragraph for emphasis. */
+    margin-bottom: 20px; /* Adds spacing below the lead paragraph. */
+}
+.about-image {
+    width: 100%;
+    max-width: 600px; /* Sets max width for about section images to ensure they are not too large. */
+    border-radius: 8px; /* Rounds corners of about section images. */
+    margin: 20px auto; /* Centers the image and adds vertical spacing. */
+}
+
+/* Testimonials Styles (Specific to about.html) */
+.testimonials {
+    background-color: var(--secondary-color);
+    border-left: 4px solid var(--primary-color); /* Adds a colored border to the left of testimonials for emphasis. */
+    padding: 20px;
+    margin: 20px 0;
+    font-style: italic; /* Italicizes testimonial text. */
+}
+
+/* Call to Action Styles (Specific to about.html) */
+.cta {
+    margin: 40px 0;
+    text-align: center; /* Centers the call to action content. */
+}
+.cta p {
+    font-size: 1.2rem; /* Emphasizes the call to action text. */
+    margin-bottom: 20px; /* Adds spacing below the call to action text. */
+}
+.cta a {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px; /* Rounds corners of call to action buttons. */
+    text-decoration: none;
+    font-weight: bold; /* Emphasizes call to action buttons. */
+}
+
+/* Responsive Design Adjustments (Affects all pages) */
+@media (max-width: 768px) {
+    header nav ul li {
+        display: block; /* Stacks navigation links vertically on smaller screens. */
+        margin: 10px 0;
+    }
+    main {
+        padding: 15px; /* Adjusts main content padding on smaller screens for better spacing. */
+    }
+    .image-row, .about-image {
+        flex-direction: column; /* Stacks images vertically in the image row and adjusts about image layout. */
+    }
+    .image-row img, .about-image {
+        width: 80%; /* Adjusts image widths for smaller screens to ensure they fit well. */
+        margin-bottom: 1rem; /* Adds spacing below each image on smaller screens. */
+    }
+}
+.search-results {
+    text-align: center;
+}
+
+.flights-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.flight-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    margin-bottom: 20px;
+}
+
+.flight-header {
+    background-color: #0056b3;
+    color: white;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    padding: 10px;
+}
+
+.flight-body {
+    padding: 10px;
+    background: white;
+    color: #333;
+}
+
+.flight-body p {
+    margin: 5px 0;
+}
+
+.flight-footer {
+    padding: 10px;
+    background: #f1f1f1;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.no-flights-message {
+    margin-top: 20px;
+    color: #666;
+    font-size: 18px;
+}
+
+button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+} 
+
+
+button.btn:hover {
+    background-color: darken(var(--primary-color), 10%);
+}
+
+.content-container {
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center; /* Centering the text */
+}
+/* Overall Table Styles */
+.bookings-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px; /* Space above the table */
+    font-size: 0.9em; /* Adjust the font size as needed */
+}
+
+
+
+/* Header Row Styles */
+.bookings-table th {
+    /* A slightly darker shade of gray background-color:  #f2f2f2; */
+ /* Dark gray text for contrast color: #333; */
+    text-align: left;
+    padding: 8px;
+}
+
+/* Body Row Styles */
+.bookings-table td {
+    text-align: left;
+    padding: 8px;
+}
+
+/* Zebra Striping for Body Rows */
+.bookings-table tbody tr:nth-child(odd) {
+    background-color: #fbfbfb; /* Lighter gray for odd rows */
+}
+
+.bookings-table tbody tr:nth-child(even) {
+    background-color: #f2f2f2; /* Slightly darker gray for even rows */
+}
+
+/* Hover Effect for Rows */
+.bookings-table tbody tr:hover {
+    background-color: #f1f1f1; /* Color change on hover for interactivity */
+}
+
+.cancel-button {
+    background-color: #ff4c4c; /* Red background color for cancel button */
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    margin: 5px 0; /* Some space around buttons */
+    border-radius: 5px;
+    cursor: pointer; /* Cursor changes to a hand icon */
+    font-weight: bold;
+}
+
+.cancel-button:hover {
+    background-color: #ff3333; /* Slightly darker red on hover */
+}
+
+/* Optional: Add a little message box for flash messages */
+.flash-message {
+    padding: 10px;
+    color: #fff;
+    background-color: #5cb85c; /* Green background for success */
+    border-radius: 5px;
+    margin: 10px 0;
+    display: inline-block;
+}
+
+.flash-message.error {
+    background-color: #d9534f; /* Red background for errors */
+}
+/* Button Styles */
+.update-button, .cancel-button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-right: 5px;
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.update-button {
+    background-color: #4CAF50; /* Green */
+    color: white;
+}
+
+.cancel-button {
+    background-color: #f44336; /* Red */
+    color: white;
+}
+
+.update-button:hover {
+    background-color: #45a049;
+}
+
+.cancel-button:hover {
+    background-color: #d32f2f;
+}
+
+/* Optional: Table Styles for Consistency and Responsiveness */
+.bookings-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.bookings-table th, .bookings-table td {
+    text-align: left;
+    padding: 8px;
+}
+
+.bookings-table tr:nth-child(even) {background-color: #f2f2f2;}
+
+.bookings-table th {
+    background-color: #FFDC00; /* Soft yellow */
+    color: #333; /* Dark gray text for good readability */
+}
+
+/* Specific styles for authentication forms (login and register) */
+.auth-form {
+    background-color: #f8f9fa; /* Light grey background */
+    padding: 2rem; /* Spacious padding */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    max-width: 500px; /* Max width of the form */
+    margin: 2rem auto; /* Margin for auto horizontal centering and spacing from top */
+}
+
+.auth-form .form-group {
+    margin-bottom: 1rem; /* Space between form groups */
+}
+
+.auth-form .form-control {
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem; /* Match border-radius to buttons */
+    margin-bottom: 1rem; /* Space between each input */
+    padding: 0.75rem 1.25rem; /* Comfortable padding inside inputs */
+}
+
+.auth-form .form-control:focus {
+    border-color: #80bdff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.auth-form .btn-primary {
+    width: 100%; /* Full width button for mobile responsiveness */
+    padding: 10px; /* Sufficient padding for touch targets */
+    margin-top: 0.5rem; /* Space above the button */
+}
+
+.auth-form .alert {
+    margin-bottom: 1rem; /* Space below the alert message */
+}
+
+.auth-form h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .auth-form {
+        padding: 1rem; /* Smaller padding on smaller screens */
+        margin-top: 1rem; /* Less vertical space on smaller screens */
+    }
+}
+/* FAQ Styles */
+.faq-category-toggle {
+    background-color: #f8f9fa; /* Light gray background */
+    padding: 15px; /* Padding for aesthetic spacing */
+    margin-bottom: 2px; /* Small margin between categories */
+    cursor: pointer; /* Cursor indicates the element is clickable */
+    font-weight: bold; /* Make the category title bold */
+    border: 1px solid #ddd; /* Border to distinguish between collapsible headers */
+}
+
+/* Style for when the category is active/expanded */
+.faq-category-toggle.active {
+    background-color: #e9ecef; /* Slightly darker background for active state */
+    color: #0056b3; /* Optional: change text color for active state */
+}
+
+/* Initially hide the content */
+.faq-category-content {
+    display: none; /* Content is hidden by default */
+    padding: 15px;
+    border-top: 0; /* Remove top border to merge with toggle button */
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    background-color: #ffffff; /* White background for the content */
+}
+
+/* Additional styling to enhance appearance (optional) */
+.faq-category-toggle:hover {
+    background-color: #e2e6ea; /* Color change on hover */
+}
+
+/* Clearfix for floated elements */
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/* Responsive text alignment */
+@media (max-width: 768px) {
+    .faq-category-toggle {
+        text-align: left;
+    }
+}
+
+.flight-header h3 {
+    color: #FFF; /* Or any color that stands out from the background */
+}
+
+
+
+
+

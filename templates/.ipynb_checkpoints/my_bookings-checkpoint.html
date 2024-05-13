@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="content-container">
+    <h1>My Bookings</h1>
+
+    {% if bookings %}
+        <table class="bookings-table">
+            <thead>
+                <tr>
+                    <th>Booking ID</th>
+                    <th>Flight Number</th>
+                    <th>Airline</th>
+                    <th>Origin</th>
+                    <th>Destination</th>
+                    <th>Passenger Name</th>
+                    <th>Family Name</th>
+                    <th>Gender</th>
+                    <th>Date of Birth</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for booking in bookings %}
+                <tr>
+                    <td>{{ booking.booking_id }}</td>
+                    <td>{{ booking.flight_no }}</td>
+                    <td>{{ booking.airline }}</td>
+                    <td>{{ booking.origin_city }}</td>
+                    <td>{{ booking.destination_city }}</td>
+                    <td>{{ booking.passenger_name }}</td>
+                    <td>{{ booking.family_name }}</td>
+                    <td>{{ booking.gender }}</td>
+                    <td>{{ booking.dob }}</td>
+                    <td>{{ booking.status }}</td>
+                    <td>
+                        <!-- Update button -->
+                        <form action="{{ url_for('update_booking_form', booking_id=booking.booking_id) }}" method="get">
+                            <input type="submit" value="Update" class="update-button">
+                        </form>
+                        <!-- Cancel button -->
+<form action="{{ url_for('cancel_booking', booking_id=booking.booking_id) }}" method="post">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+    <input type="submit" value="Cancel" class="cancel-button" onclick="return confirm('Are you sure you want to cancel this booking?');">
+</form>
+        
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No bookings found.</p>
+    {% endif %}
+</div>
+{% endblock %}

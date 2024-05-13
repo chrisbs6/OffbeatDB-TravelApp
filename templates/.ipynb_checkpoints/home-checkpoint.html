@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="image-row">
+    <img src="{{ url_for('static', filename='images/bora-bora.jpg') }}" alt="Destination 1">
+    <img src="{{ url_for('static', filename='images/italy.jpg') }}" alt="Destination 2">
+    <img src="{{ url_for('static', filename='images/china.png') }}" alt="Destination 3">
+</div>
+<div class="content-container">
+    <div class="vertical-images left-images">
+        <img src="{{ url_for('static', filename='images/paris.png') }}" alt="Image Description">
+        <img src="{{ url_for('static', filename='images/brazil.png') }}" alt="Image Description">
+    </div>
+<div class="search-booking-container">
+    <h1 class="welcome-text">Welcome to Offbeat Travels!</h1>
+    <p class="subtext">Your gateway to discovering the road less traveled. Explore unique destinations, and immerse yourself in local cultures and experiences.</p>
+    
+    <form id="searchForm" action="/search_results" method="get">
+
+        <label for="from">From:</label>
+            <select id="from" name="from" required>
+                {% for code in airport_codes %}
+                <option value="{{ code }}">{{ code }}</option>
+                {% endfor %}
+            </select>
+
+            <label for="to">To:</label>
+            <select id="to" name="to" required>
+                {% for code in airport_codes %}
+                <option value="{{ code }}">{{ code }}</option>
+                {% endfor %}
+            </select>
+
+        <label for="departure-date">Departure Date:</label>
+        <input type="date" id="departure-date" name="departure_date" required>
+
+        <label for="class">Class:</label>
+        <select id="class" name="class">
+            <option value="economy">Economy</option>
+            <option value="business">Business</option>
+            <option value="first-class">First Class</option>
+        </select>
+
+        <button type="submit">Search</button>
+    </form>
+</div>
+        <div class="vertical-images right-images">
+        <img src="{{ url_for('static', filename='images/bali.png') }}" alt="Image Description">
+        <img src="{{ url_for('static', filename='images/india.png') }}" alt="Image Description">
+    </div>
+</div>
+{% endblock %}

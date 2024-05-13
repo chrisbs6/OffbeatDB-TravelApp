@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="about-section">
+    <h1>Welcome to Offbeat Travels</h1>
+    <p class="lead">Your Gateway to the Unexplored</p>
+    <img src="{{ url_for('static', filename='images/dive.png') }}" alt="Explore with Offbeat Travels" class="about-image">
+
+    <p>At Offbeat Travels, our passion goes beyond the mere act of traveling. Established in 2024, we are pioneers in unveiling the Earth's most secluded sanctuaries. Our quest is to offer you not just a journey, but a truly transformative experience. By venturing into untouched beaches, hidden mountain retreats, and culturally rich villages, we invite you to immerse yourself fully in the essence of each destination.</p>
+    
+    <h2>Our Mission</h2>
+    <p>Our mission is to inspire and transform through travel. We meticulously design our tours to ensure they offer a deep dive into the local culture, traditions, and natural beauty of each location. Our aim is not just to visit a place but to understand it, respect it, and leave a positive impact.</p>
+    
+    <h2>Why Choose Offbeat Travels?</h2>
+    <ul>
+        <li><strong>Unique Destinations:</strong> Discover places beyond the reach of the typical tourist.</li>
+        <li><strong>Authentic Experiences:</strong> Engage in activities that truly represent the local culture.</li>
+        <li><strong>Sustainable Travel:</strong> Travel responsibly with our eco-friendly and sustainable travel initiatives.</li>
+        <li><strong>Expert Guides:</strong> Our guides are not just experts; they’re locals who share a deep love and respect for their homeland.</li>
+    </ul>
+    
+    <h2>From Our Founders</h2>
+    <p>"The idea of Offbeat Travels was born from a deep-seated belief that travel should be enlightening and transformative. Every trip we design is infused with this philosophy, aiming to create meaningful interactions and memorable experiences." - [Founder's Name], Co-founder & CEO.</p>
+    
+    <h2>Commitment to Sustainability</h2>
+    <p>We are steadfast in our commitment to preserving the beauty and integrity of the destinations we explore. This commitment is reflected in our operations, from minimizing our carbon footprint to supporting local communities and conservation efforts.</p>
+    
+    <h2>Hear From Our Travelers</h2>
+    <div class="testimonials">
+        <p>"My journey with Offbeat Travels was not just a trip; it was a deep dive into the heart and soul of [Destination]. It changed my perspective on travel." - Pardi</p>
+        <p>"Thanks to Offbeat Travels, I discovered the true meaning of adventure and exploration. Their attention to detail and commitment to sustainable travel is unmatched." - Chris</p>
+    </div>
+
+</div>
+{% endblock %}

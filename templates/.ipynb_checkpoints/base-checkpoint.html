@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offbeat Travels</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <!-- FontAwesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <!-- Logo could go here -->
+            <img src="{{ url_for('static', filename='images/flight.png') }}" alt="Flight Icon" class="navbar-icon">
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/contact">Contact</a></li>
+                <li><a href="/faq">FAQs</a></li>
+            <!-- Authentication links, aligned to the right -->
+<ul class="nav-authentication ml-auto">
+    {% if not current_user.is_authenticated %}
+        <!-- Show Login when the user is NOT authenticated -->
+        <li><a href="{{ url_for('login') }}" class="login-btn"><i class="fas fa-user"></i> Login</a></li>
+    {% else %}
+        <!-- Show My Bookings and Logout when the user IS authenticated -->
+    <li class="nav-authentication-item">
+        <a href="{{ url_for('my_bookings') }}"><i class="fas fa-bookmark"></i> My Bookings</a>
+        <a href="{{ url_for('logout') }}" class="logout-btn">Logout</a>
+    </li>
+    {% endif %}
+</ul>
+
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <p>© 2024 Offbeat Travels. All rights reserved.</p>
+    </footer>
+</body>
+</html>
+
+       
