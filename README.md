@@ -94,3 +94,6 @@ MongoDB
    `flask run`  
 
 This will start the web server on http://127.0.0.1:5000/ by default  
+
+## Video Tutorial
+[![Tutorial Video](https://img.youtube.com/vi/sFQDoP0rabA/0.jpg)](https://www.youtube.com/watch?v=sFQDoP0rabA)
