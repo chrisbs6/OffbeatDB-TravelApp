@@ -1,9 +1,9 @@
 # OffbeatDB-TravelApp
 
-Project Overview:
+## Project Overview:
 **Offbeat Travels** is a web-based application that manages travel bookings and inquiries. The application uses Flask for the web server, MySQL for relational data storage, and MongoDB for non-relational data like FAQs and logs.
 
-File Structure:
+## File Structure:
 - offbeat-env/: Contains the virtual environment setup for the project.
 - static/: Holds all static content used by the web application, such as images, CSS, and JavaScript files.
 - templates/: Contains HTML files which define the structure and layout of the web application's pages.
@@ -16,79 +16,81 @@ File Structure:
 - readMe.txt: This file, providing documentation on the project setup and instructions on how to run the application.
 - requirements.txt: Lists all Python dependencies required to run the project that should be installed using pip after activating the virtual environment.
 
-Pre-requisites:  
-    Python 3.x  
-    MySQL  
-    MongoDB  
-    Flask  
-    Virtual Environment Tools  
-    pip for Python Package Management  
+## Pre-requisites:  
+Python 3.x  
+MySQL  
+MongoDB  
+Flask  
+Virtual Environment Tools  
+pip for Python Package Management  
 
-Initial Setup  
-A. Environment Setup:  
-    1. Download the Project  
-    2. Navigate to Project Directory:  
-        `cd path/to/OffbeatTravels`  
-    3. Activate Virtual Environment:  
-        `source offbeat-env/bin/activate`   # On Windows use `offbeat-venv\Scripts\activate`  
-    4. Install Dependencies:  
+## Initial Setup  
+### A. Environment Setup:  
+1. Download the Project  
+2. Navigate to Project Directory:  
+   `cd path/to/OffbeatTravels`  
+3. Activate Virtual Environment:  
+   macOS: `source offbeat-env/bin/activate`  
+   Windows: `offbeat-venv\Scripts\activate`  
+5. Install Dependencies:  
         `pip install -r requirements.txt`  
-B. Database Setup:  
-    MySQL  
-        1. Install MySQL  
-            macOS: `brew install mysql`  
-        2. Start MySQL Shell:  
-            `mysql -u root -p`  
-        3. Create MySQL User:  
-            `CREATE USER 'offbeat_traveler'@'localhost' IDENTIFIED BY '12345678';`  
-            `GRANT ALL PRIVILEGES ON *.* TO 'offbeat_traveler'@'localhost';`  
-            `FLUSH PRIVILEGES;`  
-    MongoDB  
-        1. Install MongoDB (Link: https://www.mongodb.com/docs/manual/administration/install-community/)  
-        2. If you already have MongoDB with authentication, skip to to step 10  
-        3. Disable authentication:  
-            Edit config file:  
-                macOS: `nano /opt/homebrew/etc/mongod.conf`  
-            Comment out the security authorization line by adding a # in front of it:
-                # security:  
-                #   authorization: enabled  
-        4. Start MongoDB:  
-            macOS: `sudo brew services start mongodb-community@7.0`  
-        5. Access MongoDB Shell:  
-            `mongosh`  
-        6. Create Admin User in MongoDB:  
-            `use admin`  
-            `db.createUser({  
-                user: "admin",  
-                pwd: "Dsci-551",  
-                roles: ["root"]  
-            });`  
-        7. Stop MongoDB:  
-            macOS: `sudo brew services stop mongodb-community@7.0`  
-        8. Reenable authentication by removing the # added in front of the security authorization line in part 3  
+### B. Database Setup:  
+MySQL  
+    1. Install MySQL  
+        macOS: `brew install mysql`  
+    2. Start MySQL Shell:  
+        `mysql -u root -p`  
+    3. Create MySQL User:  
+        `CREATE USER 'offbeat_traveler'@'localhost' IDENTIFIED BY '12345678';`   
+        `GRANT ALL PRIVILEGES ON *.* TO 'offbeat_traveler'@'localhost';`  
+        `FLUSH PRIVILEGES;`  
+            
+MongoDB  
+    1. Install MongoDB (Link: https://www.mongodb.com/docs/manual/administration/install-community/)  
+    2. If you already have MongoDB with authentication, skip to to step 10  
+    3. Disable authentication:  
+        Edit config file:  
             macOS: `nano /opt/homebrew/etc/mongod.conf`  
-        9. Restart MongoDB:  
-            macOS: `sudo brew services start mongodb-community@7.0`  
-        10. Access MongoDB with Authentication:  
-            `mongosh -u admin -p`  
-        11. Create New MongoDB User:  
-            `db.createUser({  
-              user: "offbeat_traveler",  
-              pwd: "12345678",  
-              roles: [{role: "readWrite", db: "travels"}]  
-            });`  
+        Comment out the security authorization line by adding a # in front of it:
+            `# security:`  
+            `#   authorization: enabled`  
+    4. Start MongoDB:  
+        macOS: `sudo brew services start mongodb-community@7.0`  
+    5. Access MongoDB Shell:  
+        `mongosh`  
+    6. Create Admin User in MongoDB:  
+        `use admin`  
+        `db.createUser({  
+            user: "admin",  
+            pwd: "Dsci-551",  
+            roles: ["root"]  
+        });`  
+    7. Stop MongoDB:  
+        macOS: `sudo brew services stop mongodb-community@7.0`  
+    8. Reenable authentication by removing the # added in front of the security authorization line in part 3  
+        macOS: `nano /opt/homebrew/etc/mongod.conf`  
+    9. Restart MongoDB:  
+        macOS: `sudo brew services start mongodb-community@7.0`  
+    10. Access MongoDB with Authentication:  
+        `mongosh -u admin -p`  
+    11. Create New MongoDB User:  
+        `db.createUser({  
+            user: "offbeat_traveler",  
+            pwd: "12345678",  
+            roles: [{role: "readWrite", db: "travels"}]  
+        });`  
 
-Running the Application:  
+## Running the Application:  
 1. Make sure that MySQL and MongoDB services are running and that the appropriate users were created.  
 2. In "OffbeatTravels" directory, set environment variables:  
-    macOS/Linux:  
-        `export FLASK_APP=app.py`  
-    Windows:  
-        `set FLASK_APP=app.py`  
+   macOS/Linux:  
+       `export FLASK_APP=app.py`  
+   Windows:  
+       `set FLASK_APP=app.py`  
 3. Initialize Database:  
-    `python populate_faq.py`  
-    `python create_db.py`  
+   `python populate_faq.py`  
+   `python create_db.py`  
 4. Start Flask Application:  
-    `flask run`  
+   `flask run`  
 
 This will start the web server on http://127.0.0.1:5000/ by default  
